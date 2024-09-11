@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+h1, h2, h4 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.container-fluid {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.navbar {
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 1.1em;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #d4d4d4;
+}
+
+/* Estilos para los botones */
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button#ver_odontologos, button#ver_pacientes {
+    margin-bottom: 20px;
+}
+
+/* Estilos para los formularios */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form input[type="text"], form input[type="email"], form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+form button {
+    width: 100%;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Estilos para las tablas */
+table {
+    width: 100%;
+    margin-top: 20px;
+    /*border-collapse: collapse; */
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para mensajes y resultados */
+#message, #result {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    display: none;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    form {
+        padding: 10px;
+    }
+}
