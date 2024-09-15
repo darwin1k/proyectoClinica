@@ -2,18 +2,48 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     padding: 20px;
+    margin: 0; /* Eliminar margen predeterminado */
 }
 
-h1, h2, h4 {
-    color: #007bff;
-    margin-bottom: 20px;
+/* Estilos para el contenedor de bienvenida */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    text-align: center;
 }
 
+.welcome-container .welcome-text {
+    max-width: 800px; /* Limitar el ancho del texto */
+}
+
+.welcome-container h1 {
+    color: #007bff; /* Color del título */
+    font-size: 2.5em;
+    margin-bottom: 0; /* Eliminar margen inferior para el título */
+}
+
+.welcome-container h2 {
+    color: #007bff; /* Color del subtítulo */
+    font-size: 2em;
+    margin-top: 10px; /* Espacio entre título y subtítulo */
+}
+
+.welcome-container p {
+    color: #000; /* Color negro para el texto */
+    font-size: 1.2em;
+    margin-top: 20px; /* Espacio entre el texto y el párrafo */
+}
+
+/* Estilos para el contenedor fluido */
 .container-fluid {
     background-color: #007bff;
     color: #fff;
 }
 
+/* Estilos para la barra de navegación */
 .navbar {
     padding: 15px;
     margin-bottom: 30px;
@@ -78,7 +108,6 @@ form button:hover {
 table {
     width: 100%;
     margin-top: 20px;
-    /*border-collapse: collapse; */
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }

@@ -48,13 +48,21 @@ public class OdontologoController {
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity<Void> eliminarById(@PathVariable Long id){
-        odontologoService.eliminarOdontologo(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Optional<Void>> eliminarById(@PathVariable Long id){
+        Optional<Odontologo> odontologo = odontologoService.buscarById(id);
+        if(odontologo.isPresent()){
+            odontologoService.eliminarOdontologo(id);
+            return ResponseEntity.noContent().build();
+        }else {
+            return ResponseEntity.status(404).build();
+        }
+
     }
 
-    @GetMapping("/actualizar/{id}")
-    public ResponseEntity<Optional<Odontologo>> actualizar(@PathVariable Long id, Odontologo odontologo){
+    @PutMapping("/actualizar/{id}")
+    public ResponseEntity<Optional<Odontologo>> actualizar(@PathVariable Long id, @RequestBody Odontologo odontologo){
         return ResponseEntity.ok(odontologoService.actualizarOdontologo(id,odontologo));
     }
+
+
 }

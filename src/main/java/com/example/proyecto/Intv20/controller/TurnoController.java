@@ -40,7 +40,13 @@ public class TurnoController {
 
     @GetMapping("/buscar/{id}")
     public ResponseEntity<Optional<Turno>> buscarTurnoId(@PathVariable Long id){
-        return ResponseEntity.ok(turnoService.buscarById(id));
+        Optional<Turno> turno = turnoService.buscarById(id);
+        if (turno.isPresent()){
+            return ResponseEntity.ok(turno);
+        }else {
+            return ResponseEntity.status(404).build();
+        }
+
     }
 
     @GetMapping("/listarTodos")
@@ -48,9 +54,16 @@ public class TurnoController {
         return ResponseEntity.ok(turnoService.listarTodos());
     }
 
-    @GetMapping("/eliminar/{id}")
-    public void eliminarbyId(@PathVariable Long id){
-        turnoService.eliminarTurnoId(id);
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<Optional<Void>> eliminarbyId(@PathVariable Long id){
+        Optional<Turno> turno  = turnoService.buscarById(id);
+        if(turno.isPresent()){
+            turnoService.eliminarTurnoId(id);
+            return ResponseEntity.noContent().build();
+        }else {
+            return ResponseEntity.status(404).build();
+        }
+
     }
 
     @GetMapping("/actualizar/{id}")

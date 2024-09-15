@@ -29,6 +29,16 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteService.buscarPacienteID(id));
     }
 
+    @GetMapping("/buscarCedula/{cedula}")
+    ResponseEntity<Optional<Paciente>> buscarByCedula(@PathVariable String cedula){
+        Optional<Paciente> paciente  = pacienteService.buscarByCedula(cedula);
+        if(paciente.isPresent()){
+            return ResponseEntity.ok(paciente);
+        }else {
+            return ResponseEntity.status(404).build();
+        }
+    }
+
     @GetMapping("/buscarEmail/{email}")
     ResponseEntity<Optional<Paciente>> buscarByEmail(@PathVariable String email){
         Optional<Paciente> paciente  = pacienteService.buscarByEmail(email);
@@ -44,12 +54,18 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteService.listarTodos());
     }
 
-    @GetMapping("/eliminar/{id}")
-    public void eliminarbyId(@PathVariable Long id){
-        pacienteService.eliminarPacienteId(id);
+    @DeleteMapping("/eliminar/{id}")
+    public ResponseEntity<Optional<Void>> eliminarbyId(@PathVariable Long id){
+        Optional<Paciente> paciente = pacienteService.buscarPacienteID(id);
+        if(paciente.isPresent()){
+            pacienteService.eliminarPacienteId(id);
+            return ResponseEntity.noContent().build();
+        }else {
+            return ResponseEntity.status(404).build();
+        }
     }
 
-    @GetMapping("/actualizar/{id}")
+    @PutMapping("/actualizar/{id}")
     public ResponseEntity<Optional<Paciente>> actualizar(@PathVariable Long id, Paciente paciente){
         return ResponseEntity.ok(pacienteService.actualizarPaciente(id,paciente));
     }

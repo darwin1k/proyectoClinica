@@ -139,6 +139,8 @@ document.addEventListener('DOMContentLoaded', function () {
                      });
       });
 
+
+
       function resetUploadForm(){
               document.querySelector('#matriculaBuscado').value = "";
               document.querySelector('#idEliminar').value = "";

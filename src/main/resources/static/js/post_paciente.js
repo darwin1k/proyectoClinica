@@ -35,6 +35,7 @@ window.addEventListener('load', function () {
             .then(data => {
             let successAlert = `<div style="color: green;">¡Éxito! La operación fue completada correctamente.</div>`
                  document.getElementById('message').innerHTML  = successAlert;
+                 document.getElementById('message').style.display = 'block';
                  resetUploadForm();
 
 
